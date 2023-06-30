@@ -16,21 +16,22 @@ Make sure you have the following packages if you want to run the notebook locall
 ```
 
 ## Goal
-***
 The goal of this project is to get direct experience performing data exploration and analysis on imbalanced data. Improving data quality and consistency is paramount in developing effective models in production environments, so I hoped to try some techniques for handling data (such as sampling techniques and interquartile range outlier removal). I was able to generate some visualizations showcasing the distribution of key features and the joint distributions of those highly correlated with the class.
 <br>
 
 I used a variety of statistical models: Logistic Regression, Support Vector Classifier and Random Forest. To see which performed best and had the most significant transfer of performance to the validation set. I then created a simple multilayer perceptron neural network with PyTorch to peform classification and compare results. Most results can be found in the github pages linked at the top of the README.
 
 ## Results
-***
 Here I will display the visualizations which capture key aspects of the project.
 
 ### **Exploratory Data Analysis**
 
 - Class Imbalance, before and after Random Undersampling:
-<img src="README_files/README_19_0.png" alt="Description" width="300" height="300">
-<img src="README_files/README_32_0.png" alt="Description" width="300" height="300">
+<div>
+    <img src="README_files/README_19_0.png" alt="Description" width="300" height="300">
+    <img src="README_files/README_32_0.png" alt="Description" width="300" height="300">
+</div>
+
 
 - Correlation Matrix (balanced dataset):
 <br>
@@ -81,7 +82,6 @@ Lastly, we evaluate the ROC Curve performance on the entire holdout set (imbalan
 
 
 ## Future Work
-***
 - Create Docker version with necessary requirements to generate consistent results.
 - Try synthetic transaction data generation: https://github.com/namebrandon/Sparkov_Data_Generation
     - This will give a sense of realism, applying this to data which looks and behaves like what you would find in a real world setting.

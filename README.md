@@ -1,5 +1,7 @@
 # Credit Card Fraud Detection
 This notebook is dedicated to the study and prediction of credit card fraud from a large transaction dataset.
+<br>
+Follow the link to access the [github page](https://chris-caballero.github.io/Fraud-Transaction-Detection/).
 
 ## Imports and Globals
 

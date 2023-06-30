@@ -2,7 +2,7 @@
 This notebook is dedicated to the study and prediction of credit card fraud from a large transaction dataset.
 
 ## Imports and Globals
-***
+
 Getting relevant packages for data exploration, processing, and classification. I also read in the transaction csv file and define some colors I will use for my plots throughout this notebook.
 
 
@@ -35,7 +35,7 @@ df = pd.read_csv(dataset_file)
 ```
 
 ## A look at the data
-***
+
 A quick glance at our dataframe shows us that there are 3 known attributes: {Time, Amount, Class}, and 28 unknown attributes: {V1,...,V28}.
 - Class Name and Class Dist were added by me to allow for better visualizations later on.
 
@@ -64,19 +64,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -244,19 +231,6 @@ df.describe()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -703,7 +677,7 @@ class_distribution(holdout_df)
 
 
 ## Random Undersampling
-***
+
 The main technique employed here, we simply select an equal number of non-fraud samples as we do fraud samples. 
 
 Performing random undersampling! Just randomly choose equal portion non-fraud samples and fraud samples. Since there are more non-fraud samples, we only have to portion down this field, and we keep all the fraud-samples.
@@ -733,7 +707,7 @@ plt.show()
 ![png](README_files/README_32_0.png)
 
 
-##### Correlation Matrix
+#### Correlation Matrix
 ***
 - Now that the data is balanced, the correlation matrix is showing some useful information!
 - When comparing the correlations of {V1,...,V28} to the Class (Fraudulent or Non-Fraudulent), we notice that features V1-V18 appear to have the strongest correlations.
@@ -759,7 +733,7 @@ ax = sns.heatmap(corr, annot=True, fmt=".2f")
 ![png](README_files/README_35_0.png)
 
 
-##### We can see some features with very high correlations
+#### We can see some features with very high correlations
 - Some of them may be removed if we want to reduce the dimensionality further.
 - I will be testing model performance with and without some of these.
 - From here, it looks like:
@@ -780,7 +754,7 @@ plt.show()
 ![png](README_files/README_37_0.png)
 
 
-##### Here I define some helper functions to add attributes to our dataframe
+#### Here I define some helper functions to add attributes to our dataframe
 - Class Name: Used for identifying classes of examples.
 - Class Dist: Used for plotting, a distribution with variance > 0 is needed for the plots we use!
 
@@ -805,7 +779,7 @@ new_df = create_class_names(new_df)
 new_df = create_class_distribution(new_df)
 ```
 
-##### Now we define a function to get and display the featurs with a correlation with the class of $\geq$ 0.6
+#### Now we define a function to get and display the featurs with a correlation with the class of $\geq$ 0.6
 - This will be used for statistical purposes. We want to display plots for a relatively small subset of the highest correlated features.
 - The correlation here is strictly with Class.
 
@@ -836,7 +810,7 @@ corr_feats = get_high_corr_feats(new_df, min_val=0.69)
     V14 0.7487031417936583
 
 
-##### Joint Distribution
+#### Joint Distribution
 ***
 This plot is why we added the **Class Dist** attribute earlier. To plot the joint distribution, the kdeplot needs a variable with a non-trivial standard deviation. By creating a variable which approximates the distribution of class labels, 0 and 1, with a very small variance, we can see the relative distributions in an intuitive way. 
 - This is similar to a boxplot but for the purposes of this project, I chose to visualize it this way as I find it more beautiful. 
@@ -867,7 +841,7 @@ plot_joint_distribution(new_df, corr_feats)
 ![png](README_files/README_47_0.png)
 
 
-##### Histograms of the number of transactions over time and amount
+#### Histograms of the number of transactions over time and amount
 We find the same circadian cycle for transactions over time.
 - We don't expect this to change much since we randomly sampled the dataset. 
 - This just has less points to use to plot the distribution.
@@ -1041,10 +1015,10 @@ def plot_reduced_dimensions(df, method='tsne'):
     return None
 ```
 
-##### t-SNE shows clear clustering with respect to class.
+#### t-SNE shows clear clustering with respect to class.
 - The classes seem reasonably separated about x = 5. 
 - There is some ambiguity, but this is bound to happen when we reduce the dimensionality so much.
-##### PCA shows relatively good clustering. The boundary is not as clear as in t-SNE.
+#### PCA shows relatively good clustering. The boundary is not as clear as in t-SNE.
 - Non-Fraud samples are tighly grouped along the principle components.
 - Fraud samples have a wider range of values, but tend to hover left of the non-fraud cluster. 
 - The ambiguity is greater here, but at least it appears the data is mostly separable.
@@ -1070,7 +1044,7 @@ It is important to test simple and effective models on this data to get an idea 
 - LogisticRegression. This classifier will find the best decision boundary separating the data according the a probability that it belongs to a given class.
 - SVM. This will simply find the decision boundary that maximizes the margin from data points to the hyperplane separating them.
 
-##### Imports and Helper Functions
+#### Imports and Helper Functions
 
 
 ```python
@@ -1189,7 +1163,7 @@ def train_and_evaluate_models(models, data, val_data=None, drop_cols=['Class', '
     return scores_df
 ```
 
-##### Model Initialization
+#### Model Initialization
 - We define our models here and add them to a dictionary so we can easily compare results.
 - These parameters are all optional, feel free to change them to see how they affect the performance.
 - The confusion matrix is calculated on the test set derived from the training set. 
@@ -1573,7 +1547,7 @@ display(HTML(balanced_scores2.to_html(index=False)), HTML(trimmed_scores2.to_htm
 </table>
 
 
-##### ROC Curves
+#### ROC Curves
 ***
 To see how the model performs on the original holdout set (+50k examples with high class imbalance)
 

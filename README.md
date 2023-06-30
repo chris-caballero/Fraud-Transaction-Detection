@@ -76,6 +76,9 @@ Then I train and evalute the model on the balanced dataset (using train_test_spl
 - The second uses the data with outliers removed.
 <img src="README_files/README_77_0.png" alt="Description" width="600" height="200">
 
+Lastly, we evaluate the ROC Curve performance on the entire holdout set (imbalanced validation set):
+<img src="README_files/README_84_0.png" alt="Description" width="500" height="400">
+
 
 ## Future Work
 ***

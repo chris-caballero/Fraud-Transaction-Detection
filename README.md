@@ -27,8 +27,11 @@ Here I will display the visualizations which capture key aspects of the project.
 ### **Exploratory Data Analysis**
 
 - Class Imbalance, before and after Random Undersampling:
-<img src="README_files/README_19_0.png" alt="Description" width="300" height="300">
-<img src="README_files/README_32_0.png" alt="Description" width="300" height="300">
+<div>
+    <img src="README_files/README_19_0.png" alt="Description" width="300" height="300">
+    <img src="README_files/README_32_0.png" alt="Description" width="300" height="300">
+</div>
+
 
 - Correlation Matrix (balanced dataset):
 <br>

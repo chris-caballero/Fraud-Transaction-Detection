@@ -6,7 +6,6 @@ Follow the link to access the [github page](https://chris-caballero.github.io/Fr
 ## Requirements
 Make sure you have the following packages if you want to run the notebook locally.
 ```
-- torch
 - seaborn
 - pandas
 - numpy

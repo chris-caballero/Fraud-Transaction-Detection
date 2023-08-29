@@ -81,10 +81,9 @@ Lastly, we evaluate the ROC Curve performance on the entire holdout set (imbalan
 
 
 ## Future Work
-- Create Docker version with necessary requirements to generate consistent results.
 - Try synthetic transaction data generation: https://github.com/namebrandon/Sparkov_Data_Generation
     - This will give a sense of realism, applying this to data which looks and behaves like what you would find in a real world setting.
     - The original data is anonymized which makes understanding the data much harder.
 - Try various sampling techniques (SMOTE, Tomek Links, ...)
-- Create a new notebook exploring all the same stuff using **Tensorflow Extended (TFX)** and **Tensorflow Transform (TFT)** for scalable feature selection, feature engineering and data/execution monitoring.
+- Create interactive tables with Tableau
 

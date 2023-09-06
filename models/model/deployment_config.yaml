@@ -1,0 +1,7 @@
+deploymentUri: gs://fraud-detection-xgboost/training/trial_2/model
+framework: XGBOOST
+labels:
+  job_id: t2
+  error_percent: '7'
+runtimeVersion: '1.14'
+pythonVersion: '2.7'

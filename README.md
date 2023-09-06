@@ -1,36 +1,29 @@
 # Credit Card Fraud Detection
 
-This notebook is dedicated to the study and prediction of credit card fraud from a large transaction dataset. Follow the link to access the [github page](https://chris-caballero.github.io/Fraud-Transaction-Detection/) to see the notebook and results!
-
-## Requirements
-Make sure you have the following packages if you want to run the notebook locally.
-```
-- seaborn
-- pandas
-- numpy
-- matplotlib
-- scikit-learn
-- ipython
-- torch
-- xgboost
-```
+This notebook is dedicated to the study and prediction of credit card fraud from a large transaction dataset.
+Follow the link to access the [github page](https://chris-caballero.github.io/Fraud-Transaction-Detection/) to see the notebook and results!
 
 ## Update 9/6/2023
 ### **XGBoost Model for Predictions**
 - I was able to use AI Platform on GCP to replicate my local model training procedure and deploy a trained XGBoost model for credit card fraud detection.
 - Trained this model using the cleaned data stored in Google Cloud Storage (GCS) and deployed it on Google AI Platform.
 - To make predictions with the XGBoost model, check out the notebook: `src/notebooks/xgboost-serving.ipynb`.
-  - This notebook calls a Google Cloud Function to serve predictions 
+  - This notebook calls a Google Cloud Function to serve predictions from the deployed model
     - Code provided in: `src/cloud/cloud_predict_json.py`
   - It also loads the saved output model from GCS into local memory and uses it for local predictions.
 
+
+## Requirements
+
+### Using **Python Virtual Environments**:
+- run `pip install -r requirements.txt` while in your virtual env.
+- Check out the notebooks:
+    - `src/notebooks/*`
 
 ## Goal
 The goal of this project is to get direct experience performing data exploration and analysis on imbalanced data. Improving data quality and consistency is paramount in developing effective models in production environments, so I hoped to try some techniques for handling data (such as sampling techniques and interquartile range outlier removal). I was able to generate some visualizations showcasing the distribution of key features and the joint distributions of those highly correlated with the class.
 
 I used a variety of statistical models: Logistic Regression, Support Vector Classifier, Random Forest, and XGBoost. To see which performed best and had the most significant transfer of performance to the validation set. Most results can be found in the GitHub pages linked at the top of the README.
-
-
 
 ## Results
 Here I will display the visualizations which capture key aspects of the project.

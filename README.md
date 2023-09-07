@@ -56,12 +56,13 @@ Here I will display the visualizations which capture key aspects of the project.
 Outlier removal using interquartile range and threshold:
 - The outliers were only removed for the positive class, Fraud.
 - The outliers are clearly visible in the Non-Fraud boxplot, outside the quartile lines.
-<br>
+
+
 <img src="imgs/README_55_0.png" alt="Description" width="550" height="300">
 
 ### **Dimensionality Reduction (PCA and t-SNE)**
 Reducing dimensionality allows us to see if the data naturally clusters. From the images below, while there is some ambiguity, the data clusters well.
-<br>
+
 <img src="imgs/README_60_0.png" alt="Description" width="300" height="250">
 <img src="imgs/README_60_1.png" alt="Description" width="300" height="250">
 
@@ -72,15 +73,20 @@ First, I chose to visualize the performance of a couple of models trained with i
 - Train on the whole dataset (excluding the balanced dataset).
 - Evaluate on the balanced dataset (easier to interpret).
 - The model is mostly predicting 0, doesn't look like it fit the data.
+
 <img src="imgs/README_69_0.png" alt="Description" width="550" height="250">
 
 Then, I train and evaluate the model on the balanced dataset (using train_test_split):
 - The first uses the data without outliers removed.
+
 <img src="imgs/README_71_0.png" alt="Description" width="600" height="200">
+
 - The second uses the data with outliers removed.
+
 <img src="imgs/README_77_0.png" alt="Description" width="600" height="200">
 
 Lastly, we evaluate the ROC Curve performance on the entire holdout set (imbalanced validation set):
+
 <img src="imgs/README_84_0.png" alt="Description" width="500" height="400">
 
 ## Future Work

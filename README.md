@@ -29,42 +29,39 @@ I used a variety of statistical models: Logistic Regression, Support Vector Clas
 Here I will display the visualizations which capture key aspects of the project.
 
 ### **Exploratory Data Analysis**
-
-- Class Imbalance, before and after Random Undersampling:
+Class Imbalance, before and after Random Undersampling:
 <div>
     <img src="imgs/README_19_0.png" alt="Description" width="300" height="300">
     <img src="imgs/README_32_0.png" alt="Description" width="300" height="300">
 </div>
+<hr>
 
-- Correlation Matrix (balanced dataset):
-<br>
-<img src="imgs/README_35_0.png" alt="Description" width="500" height="400">
+Correlation Matrix (left: All Features, right: Highly correlated features):
+<div>
+  <img src="imgs/README_35_0.png" alt="Description" width="500" height="400">
+  <img src="imgs/README_37_0.png" alt="Description" width="300" height="250">
+</div>
+<hr>
 
-- Correlation Matrix (balanced dataset) - Highly correlated features:
-    - In the future I will use this information to perform feature selection.
-<br>
-<img src="imgs/README_37_0.png" alt="Description" width="300" height="250">
+Known features (Time and Amount) Distributions:
+- The circadian cycle is apparent in the distribution of transactions over time. People buy less stuff at night!
+- Important to note that this data was collected over the period of two days and nights, which explains why this cycle is noticeable.
+<div>
+  <img src="imgs/README_49_0.png" alt="Description" width="600" height="200">
+</div>
 
-- Known features (Time and Amount) Distributions:
-    - The circadian cycle is apparent in the distribution of transactions over time. People buy less stuff at night!
-    - Important to note that this data was collected over the period of two days and nights, which explains why this cycle is noticeable.
-<br>
-<img src="imgs/README_49_0.png" alt="Description" width="600" height="200">
+<hr>
 
 ### **Feature Engineering**
 
 Outlier removal using interquartile range and threshold:
 - The outliers were only removed for the positive class, Fraud.
 - The outliers are clearly visible in the Non-Fraud boxplot, outside the quartile lines.
+<div>
+  <img src="imgs/README_55_0.png" alt="Description" width="550" height="300">
+</div>
 
-
-<img src="imgs/README_55_0.png" alt="Description" width="550" height="300">
-
-### **Dimensionality Reduction (PCA and t-SNE)**
-Reducing dimensionality allows us to see if the data naturally clusters. From the images below, while there is some ambiguity, the data clusters well.
-
-<img src="imgs/README_60_0.png" alt="Description" width="300" height="250">
-<img src="imgs/README_60_1.png" alt="Description" width="300" height="250">
+<hr>
 
 ### **Model Performance**
 **NOTE:** Full results, including precision, recall, and AUC-ROC scores, can be found in the notebook execution.
@@ -85,7 +82,7 @@ Then, I train and evaluate the model on the balanced dataset (using train_test_s
 
 <img src="imgs/README_77_0.png" alt="Description" width="600" height="200">
 
-Lastly, we evaluate the ROC Curve performance on the entire holdout set (imbalanced validation set):
+Lastly, I evaluate the ROC Curve performance on the entire holdout set (imbalanced validation set):
 
 <img src="imgs/README_84_0.png" alt="Description" width="500" height="400">
 
